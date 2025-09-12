@@ -1,0 +1,94 @@
+"Hey developer, mujhe ek simple, fast, and clean Todo app chahiye jo:
+
+Real-time updates na ho, but fast ho.
+
+User new todo add kar sake.
+
+User todo ko complete/undo kar sake. Like edit 
+
+User todo delete kar sake.
+
+App attractive ho (basic styling is fine).
+
+Data MongoDB Atlas me save ho.
+
+Mobile responsive ho."
+
+
+
+
+
+
+
+
+Feature	Description	Required?
+🏠 Home Page	Todo app should be visible as soon as I land on the site	✅ MUST
+➕ Add Todo	Clean input field, fast response	✅ MUST
+✅ Mark Done	User can mark task as complete/incomplete	✅ MUST
+❌ Delete Todo	Clear delete button	✅ MUST
+💾 Data Saved	Data should be saved (not disappear after refresh)	✅ MUST
+📱 Responsive UI	Looks good on mobile and desktop	✅ MUST
+🌐 Hosted Live	I can share it with friends or team	✅ MUST
+🧭 Navbar	Clean navbar with working routes	✅ MUST
+❓ About Page	What is this app and who made it	✅ SHOULD
+📞 Contact Page	Simple contact info or fake form	✅ SHOULD
+🚫 404 Page	Nice “Page Not Found” message	✅ SHOULD
+📖 README	What the app does + how to run	✅ MUST
+🔐 Secure	No console errors or open DB	✅ MUST
+🎨 Decent UI	Basic styling, readable fonts, proper spacing	✅ MUST
+🧪 No Bugs	Every button works, nothing breaks	✅ MUST
+
+
+
+
+
+
+
+
+
+
+
+So As a Dev, Tu Yeh Checklist Follow Kar:
+🔹 Functional
+
+ Add, delete, toggle todos
+
+ Backend connected
+
+ All routes working
+
+🔹 UI/UX
+
+ Clean spacing, buttons, input fields
+
+ Mobile responsive
+
+ Active nav styling
+
+ Good font, readable size
+
+🔹 Pages
+
+ Home
+
+ About
+
+ Features
+
+ Contact
+
+ 404 Page
+
+🔹 Hosting
+
+ Frontend: Vercel / Netlify
+
+ Backend: Render / Railway
+
+🔹 Extras
+
+ README.md with screenshots and links
+
+ GitHub repo clean
+
+ Optional: loading spinner, dark mode
