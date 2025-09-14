@@ -10,6 +10,19 @@ app.get("/" , (req,res) => {
 })
 
 
+
+
+app.get("/products" , (req,res) => {
+    const helo = [
+        {
+            title : "umair" 
+        }
+    ]
+
+    res.send(helo)
+});
+
+
 app.listen(env.PORT , () => {
     console.log(`Server is running on port ${env.PORT}`);
 })

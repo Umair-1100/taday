@@ -1,18 +1,17 @@
 import { NavLink } from "react-router-dom"
 import { navbar } from "../../contexts/Index"
-
+import logo from "../../../public/images/logo/taday.png"
 
 
 const Header = () => {
-
     return (
-        <header className="bg-lime-50">
+        <header className="bg-background">
             <div className="max-w-7xl mx-auto flex items-center justify-between py-6 px-4 xl:px-0">
                 <div className="">
-                    <NavLink to={"/"}><h1 className="text-xl font-semibold mb-0">Todo App</h1></NavLink>
+                    <NavLink to={"/"}>
+                    <img className="w-20" src={logo} alt="logo" />
+                    </NavLink>
                 </div>
-
-
                 <nav>
                     <ul className="flex gap-8">
                         {navbar.map((navItem, index) => {
@@ -21,7 +20,7 @@ const Header = () => {
                                     <NavLink
                                         to={navItem.path}
                                         className={({ isActive }) =>
-                                            `px-2 transition-all duration-200 ease-in-out relative  after:content-[''] after:w-0 after:h-[2px] after:bg-black after:absolute after:-bottom-1 after:left-0 after:transition-all after:duration-200 after:ease-in-out hover:after:w-full hover:scale-105  ${isActive ? "text-black font-semibold after:w-full " : "text-gray-500"
+                                            `px-2 transition-all duration-200 ease-in-out relative  after:content-[''] after:w-0 after:h-[2px] after:bg-text after:absolute after:-bottom-1 after:left-0 after:transition-all after:duration-200 after:ease-in-out hover:after:w-full hover:scale-105  ${isActive ? "text-text font-semibold after:w-full " : "text-text-subtle"
                                             }`
                                         }
                                     >

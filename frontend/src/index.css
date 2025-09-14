@@ -1,11 +1,24 @@
 @import "tailwindcss";
 
-
-
-
-@theme{
-    --default-font-family: "Outfit", sans-serif ;
+@theme {
+  --default-font-family: "Outfit", sans-serif;
+  --color-primary: #3b82f6;
+  --color-secondary: #10b981;
+  --color-background: #f9fafb;
+  --color-white: #ffffff;
+  --color-text: #111827;
+  --color-text-subtle: #6b7280;
 }
 
+:root {
+  --color-primary: #3b82f6;
+  --color-secondary: #10b981;
+  --color-background: #f9fafb;
+  --color-white: #ffffff;
+  --color-text: #111827;
+  --color-text-subtle: #6b7280;
+}
 
-
+body {
+  background-color: var(--color-white) ;
+}
