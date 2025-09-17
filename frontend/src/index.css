@@ -24,7 +24,11 @@ body {
 }
 
 .btn-primary {
-  @apply bg-primary text-white;
+  @apply bg-primary text-white hover:bg-primary/80;
+}
+
+.btn-danger{
+  @apply bg-red-100 text-red-500 hover:bg-red-400 hover:text-white;
 }
 
 
@@ -34,4 +38,8 @@ body {
 
 .badge-danger {
   @apply bg-red-100 text-red-400 px-3 py-1 rounded-sm;
+}
+
+.transition{
+  @apply transition-all duration-200 ease-in-out;
 }

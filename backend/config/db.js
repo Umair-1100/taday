@@ -12,6 +12,7 @@ try {
 
 const todoSchema = new mongoose.Schema({
     task: String,
+    status: Boolean
 });
 
 

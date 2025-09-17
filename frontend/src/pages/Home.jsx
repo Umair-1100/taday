@@ -1,7 +1,56 @@
 import Button from "../components/common/Button"
-import { Plus } from "../icons/Index"
+import { Plus, X } from "../icons/Index"
+
+import { useState } from "react";
+import AddTodo from "../components/AddTodo";
+import { useEffect } from "react";
+
+const initialState = {
+  task: "",
+  status: false
+}
 
 const Home = () => {
+
+  const [modal, setModal] = useState(false);
+  const [form, setForm] = useState(initialState);
+  const [data, setData] = useState([]);
+
+
+  const handleChange = (e) => {
+    const { name, type, value, checked } = e.target;
+    setForm((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
+  };
+
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault()
+    console.log("Form is sunmitted", form);
+    setForm(initialState)
+    setModal(false)
+  }
+
+
+  const fetchData = async () => {
+    try {
+      const res = await fetch("http://localhost:3000/");
+      const data = await res.json();
+      setData(data)
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+
+
+  useEffect(() => {
+    fetchData()
+
+  }, [])
+
+
   return (
     <>
       <section>
@@ -12,39 +61,40 @@ const Home = () => {
               children={"Add New Task"}
               className={"btn-primary"}
               type={"button"}
+              onClick={() => setModal(true)}
               icon={<Plus className="text-white size-4" />}
             />
           </div>
-
-
           <table className="table-auto w-full text-left">
             <thead className="bg-gray-100">
               <tr>
-                <th className="px-4 py-2 border-b border-gray-100">Task</th>
-                <th className="px-4 py-2 border-b border-gray-100">Status</th>
+                <th className="px-4 py-2 font-semibold border-b border-gray-100">Task</th>
+                <th className="px-4 py-2 font-semibold border-b border-gray-100">Status</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td className="px-4 py-4 border-b border-gray-100">Study</td>
-                <td className="px-4 py-4 border-b border-gray-100"><span className="badge-success">Completed</span></td>
+              {data.map((task) => {
+                return(
+                      <tr key={task._id}>
+                <td className="px-4 py-4 border-b border-gray-100">{task.task}</td>
+                <td className="px-4 py-4 border-b border-gray-100">{task.status === true ? <span className="badge-success">Completed</span> : <span className="badge-danger">Incomplete</span>}</td>
               </tr>
-              <tr>
-                <td className="px-4 py-4 border-b border-gray-100">Study</td>
-                <td className="px-4 py-4 border-b border-gray-100"><span className="badge-danger">Incomplete</span></td>
-              </tr>
+                )
+            
+              })}
             </tbody>
             <tfoot className="bg-gray-50">
               <tr>
-                <th className="px-4 py-2 border-t">Task</th>
-                <th className="px-4 py-2 border-t">Status</th>
+                <th className="px-4 py-2 font-semibold">Task</th>
+                <th className="px-4 py-2 font-semibold">Status</th>
               </tr>
             </tfoot>
           </table>
-
-
         </div>
       </section>
+
+
+      <AddTodo form={form} modal={modal} handleChange={handleChange} handleFormSubmit={handleFormSubmit} setModal={setModal} />
     </>
   )
 }
