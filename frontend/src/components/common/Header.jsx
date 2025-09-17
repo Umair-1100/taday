@@ -2,7 +2,6 @@ import { NavLink } from "react-router-dom"
 import { navbar } from "../../contexts/Index"
 import logo from "../../../public/images/logo/taday.png"
 
-
 const Header = () => {
     return (
         <header className="bg-background">

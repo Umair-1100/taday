@@ -20,5 +20,18 @@
 }
 
 body {
-  background-color: var(--color-white) ;
+  background-color: var(--color-white);
+}
+
+.btn-primary {
+  @apply bg-primary text-white;
+}
+
+
+.badge-success {
+  @apply bg-green-100 text-green-400 px-3 py-1 rounded-sm;
+}
+
+.badge-danger {
+  @apply bg-red-100 text-red-400 px-3 py-1 rounded-sm;
 }

@@ -111,7 +111,7 @@ const Footer = () => {
               />
               <Button
                 children={"Subscribe"}
-                className={"bg-primary text-white"}
+                className={"btn-primary"}
                 type={"button"}
               />
             </form>
