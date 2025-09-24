@@ -1,10 +1,12 @@
+
 import Button from "./common/Button"
 import Modal from "./common/Modal"
 
-const AddTodo = ({modal , handleChange , handleFormSubmit , setModal , form}) => {
+const AddTodo = ({ modal, handleChange, handleFormSubmit, setModal, form }) => {
+
   return (
-   <>
-       {modal && <Modal name={"Add Task"} onClose={() => setModal(false)}>
+    <>
+      {modal && <Modal name={"Add Task"} onClose={() => setModal(false)}>
 
         <form onSubmit={handleFormSubmit}>
           <div className="mb-4">
@@ -39,7 +41,7 @@ const AddTodo = ({modal , handleChange , handleFormSubmit , setModal , form}) =>
           </div>
         </form>
       </Modal>}
-   </>
+    </>
   )
 }
 

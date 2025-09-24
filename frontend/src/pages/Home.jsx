@@ -26,11 +26,14 @@ const Home = () => {
   };
 
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault()
-    console.log("Form is sunmitted", form);
+    // console.log("Form is sunmitted", form);
     setForm(initialState)
     setModal(false)
+    await fetchData()
+    await postData()
+    
   }
 
 
@@ -45,9 +48,23 @@ const Home = () => {
   }
 
 
+  const postData = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/add-todo" , {
+        method: "POST" ,
+        headers: {"Content-Type" : "application/json"} ,
+        body: JSON.stringify(form)
+      });  
+      const data = await response.json();
+      console.log("Posted data" , data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+
   useEffect(() => {
     fetchData()
-
   }, [])
 
 
