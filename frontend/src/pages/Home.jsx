@@ -31,9 +31,8 @@ const Home = () => {
     // console.log("Form is sunmitted", form);
     setForm(initialState)
     setModal(false)
-    await fetchData()
     await postData()
-    
+    await fetchData()
   }
 
 
