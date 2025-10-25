@@ -18,7 +18,6 @@ app.post("/add-todo", async (req, res) => {
   try {
     const { task, status } = req.body;
 
-
     const checkTaskAlreadyAdded = await Todo.findOne({ task });
 
     if (checkTaskAlreadyAdded) {
@@ -30,6 +29,24 @@ app.post("/add-todo", async (req, res) => {
     res.status(201).json({ message: "Task added", data: newTask });
   } catch (error) {
     console.error(error);
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
+app.delete("/task/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    console.log(id);
+    
+    const deletedTask = await Todo.findByIdAndDelete(id);
+
+    if (!deletedTask) {
+      return res.status(404).json({ message: "Task not found" });
+    }
+
+    res.status(200).json({ message: "Task deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting task:", error);
     res.status(500).json({ message: "Server error" });
   }
 });
