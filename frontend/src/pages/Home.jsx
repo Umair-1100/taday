@@ -34,7 +34,7 @@ const Home = () => {
 
   const fetchData = async () => {
     try {
-      const res = await fetch("http://localhost:3000/");
+      const res = await fetch("https://taday.vercel.app/");
       const data = await res.json();
       setData(data);
     } catch (error) {
@@ -44,7 +44,7 @@ const Home = () => {
 
   const postData = async () => {
     try {
-      const response = await fetch("http://localhost:3000/add-todo", {
+      const response = await fetch("https://taday.vercel.app/add-todo", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
@@ -58,7 +58,7 @@ const Home = () => {
 
   const deleteTask = async (id) => {
     try {
-      const response = await fetch(`http://localhost:3000/task/${id}`, {
+      const response = await fetch(`https://taday.vercel.app/task/${id}`, {
         method: "DELETE",
       });
       if (!response.ok) {
